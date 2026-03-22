@@ -1,0 +1,30 @@
+# Electric Meter OCR - Requirements
+# Install: pip install -r requirements.txt
+
+# ── UI ──────────────────────────────────────────────────────────────────
+gradio>=4.44.0
+
+# ── Deep learning core ──────────────────────────────────────────────────
+torch>=2.1.0
+torchvision>=0.16.0
+
+# ── Transformers (needs 4.45+ for Qwen2-VL support) ─────────────────────
+transformers>=4.45.0
+accelerate>=0.26.0          # For device_map="auto" in VLM loading
+sentencepiece>=0.1.99       # Tokenizer for some models
+
+# ── VLM-specific utilities ───────────────────────────────────────────────
+qwen-vl-utils>=0.0.8        # Qwen2-VL image processing utilities
+# Note: SmolVLM needs no extra packages beyond transformers
+
+# ── EasyOCR pipeline (existing meter_ocr.py) ─────────────────────────────
+easyocr>=1.7.1
+opencv-python-headless>=4.8.0
+numpy>=1.24.0
+
+# ── Image processing ─────────────────────────────────────────────────────
+Pillow>=10.0.0
+
+# ── Optional: faster inference ───────────────────────────────────────────
+# bitsandbytes>=0.41.0     # 4-bit/8-bit quantization for VLMs (saves ~50% memory)
+# flash-attn               # FlashAttention-2 (requires CUDA, compile from source)
